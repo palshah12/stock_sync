@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:site_url",
+ "autoname": "field:site_name",
  "creation": "2025-12-03 22:53:40.396458",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -24,7 +24,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Site Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "site_url",
@@ -92,7 +93,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-03 23:14:50.134428",
+ "modified": "2025-12-04 19:47:48.620139",
  "modified_by": "Administrator",
  "module": "Stock Sync",
  "name": "Site Connection",
