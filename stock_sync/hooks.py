@@ -148,7 +148,9 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-
+website_route_rules = [
+    {'from_route': '/api/method/stock_sync.<path:method>', 'to_route': 'stock_sync'}
+]
 
 # Testing
 # -------

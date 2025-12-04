@@ -5,7 +5,7 @@ frappe.ui.form.on('Stock Sync Log', {
         if (frm.doc.status === 'Failed') {
             frm.add_custom_button(__('Retry Sync'), function() {
                 frappe.call({
-                    method: 'stock_sync_app.api.fetch_from_site',
+                    method: 'stock_sync.api.fetch_from_site',
                     args: {
                         site_name: frm.doc.site
                     },

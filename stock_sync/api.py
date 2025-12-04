@@ -65,7 +65,7 @@ def fetch_from_site(site_name, warehouse=None):
         log = frappe.new_doc("Stock Sync Log")
         log.site = site_name
         log.sync_date = now_datetime()
-        log.status = "In Progress"
+        log.status = "Success"  # Start with Success
         log.insert()
         
         # Call partner site
@@ -77,11 +77,13 @@ def fetch_from_site(site_name, warehouse=None):
         if warehouse:
             params["warehouse"] = warehouse
         
+        # ✅ CORRECTED: Use 'stock_sync.api' (your app name)
         response = requests.get(
             f"{site.site_url}/api/method/stock_sync.api.get_stock_for_external",
             headers=headers,
             params=params,
-            timeout=30
+            timeout=30,
+            verify=False  # For SSL issues
         )
         
         if response.status_code == 200:
@@ -131,16 +133,52 @@ def fetch_from_site(site_name, warehouse=None):
             
             else:
                 log.status = "Failed"
-                log.error_message = data.get("error")
+                log.error_message = data.get("error", "Unknown API error")
                 log.save()
-                return {"success": False, "error": data.get("error")}
+                site.connection_status = "Failed"
+                site.save()
+                return {"success": False, "error": data.get("error", "Unknown API error")}
                 
         else:
             log.status = "Failed"
-            log.error_message = f"HTTP {response.status_code}"
+            log.error_message = f"HTTP {response.status_code}: {response.text[:100]}"
             log.save()
+            site.connection_status = "Failed"
+            site.save()
             return {"success": False, "error": f"HTTP {response.status_code}"}
             
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "Fetch Stock Error")
+        
+        # Update log if it exists
+        if 'log' in locals():
+            log.status = "Failed"
+            log.error_message = str(e)
+            log.save()
+        
         return {"success": False, "error": str(e)}
+
+@frappe.whitelist()
+def fetch_all_sites():
+    """
+    Fetch from all active sites
+    """
+    active_sites = frappe.get_all("Site Connection",
+                                 filters={"is_active": 1},
+                                 fields=["name", "site_name"])
+    
+    results = []
+    for site in active_sites:
+        result = fetch_from_site(site.name)
+        results.append({
+            "site": site.site_name,
+            "success": result.get("success"),
+            "count": result.get("count", 0),
+            "error": result.get("error")
+        })
+    
+    return {
+        "success": True,
+        "results": results,
+        "total_sites": len(active_sites)
+    }
