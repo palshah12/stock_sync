@@ -148,23 +148,11 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"stock_sync.tasks.all"
-# 	],
-# 	"daily": [
-# 		"stock_sync.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"stock_sync.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"stock_sync.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"stock_sync.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+    "cron": {
+        "*/5 * * * *": ["stock_sync.api.scheduled_sync"]
+    }
+}
 
 # Testing
 # -------
