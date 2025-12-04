@@ -1,0 +1,53 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"lLF4Z4xjSm\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Stock Sync</span>\",\"col\":12}},{\"id\":\"P3cpDq9yDj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External Stock View\",\"col\":3}},{\"id\":\"-hkQokeS0U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Connection\",\"col\":3}},{\"id\":\"XbZGVX74YH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Sync Log\",\"col\":3}}]",
+ "creation": "2025-12-04 19:23:05.074842",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "Stock Sync",
+ "links": [],
+ "modified": "2025-12-04 19:30:46.772563",
+ "modified_by": "Administrator",
+ "module": "Stock Sync",
+ "name": "Stock Sync",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 39.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "External Stock View",
+   "link_to": "External Stock View",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stock Sync Log",
+   "link_to": "Stock Sync Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Site Connection",
+   "link_to": "Site Connection",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Stock Sync"
+}

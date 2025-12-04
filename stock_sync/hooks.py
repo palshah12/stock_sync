@@ -148,11 +148,7 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-scheduler_events = {
-    "cron": {
-        "*/5 * * * *": ["stock_sync.api.scheduled_sync"]
-    }
-}
+
 
 # Testing
 # -------
