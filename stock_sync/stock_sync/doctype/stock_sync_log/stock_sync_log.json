@@ -27,7 +27,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Success\nIn Progress\nFailed"
+   "options": "Success\nStarted\nFetching\nProcessing\nIn Progress\nFailed"
   },
   {
    "fieldname": "items_count",
@@ -43,7 +43,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-04 20:03:12.170100",
+ "modified": "2025-12-05 18:49:54.696250",
  "modified_by": "Administrator",
  "module": "Stock Sync",
  "name": "Stock Sync Log",
