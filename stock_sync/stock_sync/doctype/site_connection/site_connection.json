@@ -9,14 +9,13 @@
   "is_active",
   "site_url",
   "api_key",
-  "site_role",
   "connection_status",
-  "sync_frequency",
+  "last_sync_time",
   "column_break_civb",
   "site_name",
   "api_secret",
-  "site_direction",
-  "last_sync_time"
+  "disable_ssl_verification",
+  "timeout"
  ],
  "fields": [
   {
@@ -54,27 +53,6 @@
    "label": "Is Active"
   },
   {
-   "fieldname": "site_role",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Site Role",
-   "options": "Main\nWarehouse\nBranch\nSupplier\nCustomer\nOther",
-   "reqd": 1
-  },
-  {
-   "fieldname": "site_direction",
-   "fieldtype": "Select",
-   "label": "Site Direction",
-   "options": "Pull Only\nPush Only\nBidirectional",
-   "reqd": 1
-  },
-  {
-   "fieldname": "sync_frequency",
-   "fieldtype": "Int",
-   "label": "Sync Frequency",
-   "reqd": 1
-  },
-  {
    "fieldname": "last_sync_time",
    "fieldtype": "Datetime",
    "label": "Last Sync Time"
@@ -86,6 +64,19 @@
    "options": "Not Tested\nConnected\nFailed\nDisabled"
   },
   {
+   "default": "0",
+   "description": "Check for self-signed certificates",
+   "fieldname": "disable_ssl_verification",
+   "fieldtype": "Check",
+   "label": "Disable SSL Verification"
+  },
+  {
+   "default": "30",
+   "fieldname": "timeout",
+   "fieldtype": "Int",
+   "label": "Timeout (seconds)"
+  },
+  {
    "fieldname": "column_break_civb",
    "fieldtype": "Column Break"
   }
@@ -93,7 +84,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-04 19:47:48.620139",
+ "modified": "2025-12-05 19:15:02.096251",
  "modified_by": "Administrator",
  "module": "Stock Sync",
  "name": "Site Connection",
